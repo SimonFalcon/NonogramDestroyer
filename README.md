@@ -1,6 +1,24 @@
 # NonogramDestroyer
-This program solves nonograms on https://www.nonograms.org/
+This program scrapes nonograms from https://www.nonograms.org/ and solves them
 
+SCRAPING:
+1. Puzzle dimensions Row width, column height (<div class="content"> <table><tbody><tr><td>Size: 35x40</td></table></div>)
+2. Column numbers
+   <div class="content"><table class="nonogram_table" id="nonogram_table"><tr><td class="nmtt"><table><tbody><tr>
+       tr id "nmtt" is for COLUMN numbers
+       if there is a value in a <td> then it will have id="nmv0_0" or something like that. 
+           First number is count from left to right so max is Row width - 1.
+           Second number is count how many numbers are in column starting from 0.
+           <div> inside the <tr> has the text value of the number
+   </table></tbody></tr></td></tr></table></div>
+3. Row numbers
+   <div class="content"><table class="nonogram_table" id="nonogram_table"><tr><td class="nmtL"><table><tbody><tr>
+       tr id "nmtL" is for ROW numbers
+       if there is a value in a <td> then it will have id="nmh0_0" or something like that.
+            First number is count how many numbers are in row starting from 0.
+            Second number is count from top to bottom so max is Row width - 1.
+            <div> inside the <tr> has the text value of the number
+   </table></tbody></tr></td></tr></table></div>
 
 MUST HAVE:
 1. Matrix to store which columns and rows are solved
