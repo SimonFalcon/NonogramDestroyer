@@ -2,18 +2,18 @@
 This program scrapes nonograms from https://onlinenonograms.com/ and solves them
 
 SCRAPING:
-1. Puzzle dimensions Row width, column height <div id="crossinfo" class="catitem"> <img src="https://onlinenonograms.com/img/16/size.png" alt="S" title="Nonogram size">  10x20 ;
-    
-2. Column numbers
-   <table id="full_cross_tbl"> <tbody><tr><td><table class="bcross" id="cross_top" oncontextmenu="return false;"><tbody><tr>
-   <td> inside are from left to right the values for columns. If empty then 0. Each <tr> represents a row of column values
+1. Puzzle dimensions Row width, column height - [x]
+2. Column numbers - [x]
+3. Row numbers - [x]
+4. Puzzle "database" (json?) - []
 
-3. Row numbers
-   <table id="full_cross_tbl"> <tbody><tr><td><table class="bcross" id="cross_left" oncontextmenu="return false;"><tbody><tr>
-    <td> inside are from left to right the values for columns. If empty then 0. Each <tr> represents a row
-
+IDEAS:
+1. Maybe migrate to Numpy matrixes?
+2. Store scraped puzzles in json file?
 MUST HAVE:
 1. Matrix to store which columns and rows are solved
+
+
 SOLVING:
 1. Where columns have 1 number solve columns where number = column height of puzzle.
 2. Where rows have 1 number solve rows where number = row width of puzzle.
