@@ -1,24 +1,16 @@
 # NonogramDestroyer
-This program scrapes nonograms from https://www.nonograms.org/ and solves them
+This program scrapes nonograms from https://onlinenonograms.com/ and solves them
 
 SCRAPING:
-1. Puzzle dimensions Row width, column height (<div class="content"> <table><tbody><tr><td>Size: 35x40</td></table></div>)
+1. Puzzle dimensions Row width, column height <div id="crossinfo" class="catitem"> <img src="https://onlinenonograms.com/img/16/size.png" alt="S" title="Nonogram size">  10x20 ;
+    
 2. Column numbers
-   <div class="content"><table class="nonogram_table" id="nonogram_table"><tr><td class="nmtt"><table><tbody><tr>
-       tr id "nmtt" is for COLUMN numbers
-       if there is a value in a <td> then it will have id="nmv0_0" or something like that. 
-           First number is count from left to right so max is Row width - 1.
-           Second number is count how many numbers are in column starting from 0.
-           <div> inside the <tr> has the text value of the number
-   </table></tbody></tr></td></tr></table></div>
+   <table id="full_cross_tbl"> <tbody><tr><td><table class="bcross" id="cross_top" oncontextmenu="return false;"><tbody><tr>
+   <td> inside are from left to right the values for columns. If empty then 0. Each <tr> represents a row of column values
+
 3. Row numbers
-   <div class="content"><table class="nonogram_table" id="nonogram_table"><tr><td class="nmtL"><table><tbody><tr>
-       tr id "nmtL" is for ROW numbers
-       if there is a value in a <td> then it will have id="nmh0_0" or something like that.
-            First number is count how many numbers are in row starting from 0.
-            Second number is count from top to bottom so max is Row width - 1.
-            <div> inside the <tr> has the text value of the number
-   </table></tbody></tr></td></tr></table></div>
+   <table id="full_cross_tbl"> <tbody><tr><td><table class="bcross" id="cross_left" oncontextmenu="return false;"><tbody><tr>
+    <td> inside are from left to right the values for columns. If empty then 0. Each <tr> represents a row
 
 MUST HAVE:
 1. Matrix to store which columns and rows are solved
