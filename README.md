@@ -2,14 +2,14 @@
 This program scrapes nonograms from https://onlinenonograms.com/ and solves them
 
 SCRAPING:
-1. Puzzle dimensions Row width, column height - [x]
-2. Column numbers - [x]
-3. Row numbers - [x]
-4. Puzzle "database" (json?) - []
+- [x] Puzzle dimensions Row width, column height 
+- [x] Column numbers - [x]
+- [x] Row numbers - [x]
+- [x]  Parse puzzle link, name, dimensions, numbers, ID to json file
+
 
 IDEAS:
-1. Maybe migrate to Numpy matrixes?
-2. Store scraped puzzles in json file?
+
 MUST HAVE:
 1. Matrix to store which columns and rows are solved
 
