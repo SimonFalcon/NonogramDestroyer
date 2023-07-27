@@ -3,8 +3,8 @@ This program scrapes nonograms from https://onlinenonograms.com/ and solves them
 
 SCRAPING:
 - [x] Puzzle dimensions Row width, column height 
-- [x] Column numbers - [x]
-- [x] Row numbers - [x]
+- [x] Column numbers 
+- [x] Row numbers
 - [x]  Parse puzzle link, name, dimensions, numbers, ID to json file
 
 
