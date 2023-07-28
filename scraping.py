@@ -14,12 +14,16 @@ def extractNumbers(inputTable, numbersTable):
             for cell in row.findAll('td'):
                     numbersTable.append(cell.text)
 
-#Splitting the lists into chunks
-def splitNumberLists(inputList, splitBy):
+def splitColumnNumberLists(inputList, splitBy):
+        for i in range(0, len(inputList), splitBy):
+            yield inputList[i:i + splitBy]
+
+def splitRowNumberLists(inputList):
+    splitBy = int(len(inputList) / puzzleDimensions['height'])
     for i in range(0, len(inputList), splitBy):
         yield inputList[i:i + splitBy]
 
-for i in range(600, 700):
+for i in range(1, 5):
     
     #Requesting HTML from the website
     with requests.session() as requestHTML:
@@ -56,7 +60,7 @@ for i in range(600, 700):
     partitions = puzzleDimensionsStr.split('x')
     puzzleDimensions['width'] = int(partitions[0])
     puzzleDimensions['height'] = int(partitions[1])   
-         
+   
     # Creating file name
     fileName = f"{puzzleID}_{puzzleDimensionsStr}.json"
                 
@@ -64,12 +68,10 @@ for i in range(600, 700):
     columnTable = soup.find('table', attrs = {'id':'cross_top'})
     rowTable = soup.find('table', attrs = {'id':'cross_left'})
     extractNumbers(columnTable, extractedColumnNumbers)
-    extractNumbers(rowTable, extractedRowNumbers)
-
+    extractNumbers(rowTable, extractedRowNumbers)    
     #Splitting the lists into chunks
-    columnNumbers = list(splitNumberLists(extractedColumnNumbers, puzzleDimensions['width']))
-    rowNumbers = list(splitNumberLists(extractedRowNumbers, puzzleDimensions['height']))
-    
+    columnNumbers = list(splitColumnNumberLists(extractedColumnNumbers, puzzleDimensions['width']))
+    rowNumbers = list(splitRowNumberLists(extractedRowNumbers))
     # Writing to JSON file
     jsonObject = {
         'puzzleLink': f'{link}{puzzleID}',
