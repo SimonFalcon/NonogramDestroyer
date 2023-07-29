@@ -1,0 +1,61 @@
+/* Reset default margins and paddings for the entire document */
+body, div, table {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f1f1f1;
+    height: 100vh; /* Adjust the height to make sure the content fills the screen */
+    overflow: visible; /* Hide the horizontal scrollbar */
+  }
+  
+  .container {
+    display: flex;
+    flex-wrap: wrap; /* Allow the tables to wrap to the next line if needed */
+    width: 100%; /* Full width of the container */
+    max-width: 800px; /* Adjust this to set a maximum width for larger screens */
+    padding: 2px; /* Add some padding to the container to separate it from the screen edges */
+  }
+  
+  /* Style the tables */
+  div[class^="table"] {
+    border-collapse: collapse;
+    background-color: white;
+    width: calc(33.33% - 10px); /* Adjust this to control the width of the tables */
+    margin: 1px; /* Add some margin between the tables */
+    display: flex; /* Display the nested tables as flex items */
+    flex-direction: column; /* Arrange the nested tables vertically */
+    max-height: 100%; /* Limit the height of the nested tables */
+    overflow-y: visible; /* Enable vertical scrolling if needed */
+  }
+  
+  /* Style regular table cells */
+  td {
+    background-color: #f9f9f9;
+    color: #333;
+    padding: 0;
+    text-align: center;
+    border: 1px solid #ccc;
+    width: 16px; /* Fixed width for cells, adjust as needed */
+    height: 16px; /* Fixed height for cells, adjust as needed */
+    min-width: 16px; /* Set a minimum width for cells to maintain square shape */
+    min-height: 16px; /* Set a minimum height for cells to maintain square shape */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  
+  /* Adjust table2 and table3 */
+  .table2, .table3 {
+    flex-grow: 1; /* Allow these tables to take equal space within the container */
+  }
+  
+  /* Style for nested tables in table3 */
+  .table3 table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  

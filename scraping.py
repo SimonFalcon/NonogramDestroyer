@@ -23,7 +23,7 @@ def splitRowNumberLists(inputList):
     for i in range(0, len(inputList), splitBy):
         yield inputList[i:i + splitBy]
 
-for i in range(1, 5):
+for i in range(1, 200):
     
     #Requesting HTML from the website
     with requests.session() as requestHTML:
